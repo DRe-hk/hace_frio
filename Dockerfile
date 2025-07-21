@@ -1,5 +1,5 @@
 # Usa una imagen base de Python oficial, especifica la versión
-FROM python:3.9-slim-buster
+FROM python:3.10-slim-buster
 
 # Establece el directorio de trabajo dentro del contenedor
 WORKDIR /app
