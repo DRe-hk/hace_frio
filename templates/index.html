@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Debo abrigarme mucho o poco?</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body class="{{ background_class }}">
+    <nav class="top-nav">
+        <h1>¿Debo abrigarme mucho o poco?</h1>
+    </nav>
+
+    <main class="content-container">
+        <div class="main-display">
+            <img src="{{ url_for('static', filename=main_image_url) }}" alt="Recomendación de abrigo" class="main-image">
+            
+            <p class="recommendation-text">{{ recommendation_abrigo }}</p>
+            
+            {% if recommendation_lluvia %}
+            <p class="recommendation-text">{{ recommendation_lluvia }}</p>
+            {% endif %}
+        </div>
+
+        <div class="carousel-container" id="carousel">
+            {% for hour in forecast %}
+            <div class="hour-card" {% if hour.hora_str == current_hour_str %}id="current-hour-card"{% endif %}>
+                <div class="card-time">{{ hour.hora_str }}</div>
+                <div class="card-sensacion">
+                    <div class="sensacion-value">{{ hour.sensacion_termica }}°C</div>
+                    <div class="sensacion-label">Se espera este nivel de frío</div>
+                </div>
+                <div class="card-rain">
+                    <img src="{{ url_for('static', filename='img/paraguas.png') }}" alt="paraguas" class="rain-icon">
+                    <span>{{ hour.prob_lluvia_cat }}</span>
+                </div>
+                <div class="card-temp">{{ hour.temperatura }}°C Temp.</div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
