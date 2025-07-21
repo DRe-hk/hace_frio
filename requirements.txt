@@ -1,6 +1,6 @@
 Flask==3.0.3
 gunicorn==22.0.0
-numpy==1.24.4       # Versión compatible con TF 2.12.0
-pandas==2.0.3       # Versión compatible con numpy 1.24.4 y TF 2.12.0
+numpy==1.23.5       # Esta versión es <1.24 y >=1.22, resolviendo el conflicto de TensorFlow
+pandas==2.0.3
 scikit-learn==1.5.0
-tensorflow==2.12.0  # Asegúrate de que sea 2.x.x, no 1.x.x
+tensorflow==2.12.0
