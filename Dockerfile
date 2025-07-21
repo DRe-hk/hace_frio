@@ -12,4 +12,5 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 # Comando para iniciar la aplicación (usa gunicorn)
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:$PORT"]
+# CAMBIO AQUÍ: Usar la forma "shell form" para que $PORT se expanda
+CMD gunicorn app:app --bind 0.0.0.0:$PORT
