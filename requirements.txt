@@ -1,7 +1,6 @@
-# requirements.txt
 Flask==3.0.3
 gunicorn==22.0.0
-numpy==2.3.1
-pandas==2.3.1
-scikit-learn==1.7.1
-tensorflow==1.26.1
+numpy==1.24.4       # Versión compatible con TF 2.12.0
+pandas==2.0.3       # Versión compatible con numpy 1.24.4 y TF 2.12.0
+scikit-learn==1.5.0
+tensorflow==2.12.0  # Asegúrate de que sea 2.x.x, no 1.x.x
